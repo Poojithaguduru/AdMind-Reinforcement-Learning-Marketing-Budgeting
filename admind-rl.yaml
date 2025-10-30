@@ -1,0 +1,40 @@
+# AdMind-RL configuration
+seed: 42
+days: 180
+window: 14           # state lookback days
+budget_daily: 20000  # total budget per day
+channels:
+  - name: google_ads
+    min_pct: 0.10
+    max_pct: 0.50
+    hill_k: 0.0025
+    hill_n: 0.85
+    carryover: 0.40
+    cpa_floor: 8.0
+  - name: meta_ads
+    min_pct: 0.05
+    max_pct: 0.45
+    hill_k: 0.0018
+    hill_n: 0.90
+    carryover: 0.35
+    cpa_floor: 7.0
+  - name: email
+    min_pct: 0.00
+    max_pct: 0.25
+    hill_k: 0.0100
+    hill_n: 0.70
+    carryover: 0.20
+    cpa_floor: 2.5
+  - name: influencer
+    min_pct: 0.00
+    max_pct: 0.30
+    hill_k: 0.0009
+    hill_n: 0.95
+    carryover: 0.50
+    cpa_floor: 10.0
+
+price_per_conv: 60.0      # revenue per conversion
+volatility_penalty: 0.05  # penalize spend volatility (L2)
+noise_std: 0.10           # multiplicative gaussian noise
+seasonality_amp: 0.15     # weekly seasonality amplitude
+train_timesteps: 100_000
